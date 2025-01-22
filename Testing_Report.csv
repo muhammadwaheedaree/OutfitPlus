@@ -1,0 +1,5 @@
+Test Case ID,Description,Steps,Expected Result,Actual Result,Status,Severity
+TC001,Verify product listing loads correctly,"Navigate to homepage, observe product list",Product listing displays with correct data,Product listing loaded correctly,Pass,Low
+TC002,Test search functionality with valid input,"Enter valid product name in search bar, click search",Search results display matching products,Search results displayed as expected,Pass,Medium
+TC003,Ensure cart operations (add/remove items) work,"Add item to cart, remove item from cart",Items added/removed successfully with correct total,Cart operations worked as intended,Pass,High
+TC004,Check responsive design on mobile,"Open site on mobile view, observe layout",Layout adapts to mobile screen without issues,Mobile layout displayed correctly,Pass,Medium
