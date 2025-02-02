@@ -1,6 +1,8 @@
 "use client"
-import Link from "next/link"
+
+import type React from "react"
 import { useState } from "react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import {
   FiPhone,
@@ -15,12 +17,16 @@ import {
   FiMenu,
   FiX,
 } from "react-icons/fi"
+import Cart from "@/components/cart"
+import { useCart } from "@/context/CartContext"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false)
   const router = useRouter()
+  const { cartItems } = useCart()
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -82,7 +88,14 @@ const Header = () => {
               className="text-2xl text-[#252B42] cursor-pointer"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
             />
-            <FiShoppingCart className="text-2xl text-[#252B42] cursor-pointer" />
+            <div className="relative">
+              <FiShoppingCart className="text-2xl text-[#252B42] cursor-pointer" onClick={() => setIsCartOpen(true)} />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
+                  {cartItems.length}
+                </span>
+              )}
+            </div>
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               {isMenuOpen ? (
                 <FiX className="text-3xl text-[#252B42]" />
@@ -132,7 +145,14 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-6 text-[#23A6F0]">
             <button className="text-sm font-medium">Login/Register</button>
             <FiSearch className="text-lg cursor-pointer" onClick={() => setIsSearchOpen(!isSearchOpen)} />
-            <FiShoppingCart className="text-lg cursor-pointer" />
+            <div className="relative">
+              <FiShoppingCart className="text-lg cursor-pointer" onClick={() => setIsCartOpen(true)} />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
+                  {cartItems.length}
+                </span>
+              )}
+            </div>
             <Link href="/wishlist">
               <FiHeart className="text-lg cursor-pointer" />
             </Link>
@@ -190,6 +210,9 @@ const Header = () => {
           </div>
         )}
       </div>
+
+      {/* Cart Component */}
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </div>
   )
 }

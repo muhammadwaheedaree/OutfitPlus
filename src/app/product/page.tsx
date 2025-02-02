@@ -1,7 +1,6 @@
 import { Suspense } from "react"
 import { getPaginatedProducts, getCategories } from "@/sanity/lib/client"
 import Cards from "@/components/product-components/cards"
-import FeatureProducts from "@/components/feature-products"
 import Company from "@/components/product-components/company"
 import Header from "@/components/header"
 import Footer from "@/components/shop-components/footer"
@@ -45,7 +44,6 @@ export default async function ProductPage({
             />
           </Suspense>
         </div>
-        <FeatureProducts />
       </main>
       <Company />
       <Footer />

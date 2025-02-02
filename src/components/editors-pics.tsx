@@ -7,10 +7,10 @@ const EditorsPics = () => {
       {/* Section Heading */}
       <div>
         <h2 className="text-[#252B42] font-bold text-[24px] mb-2">
-          EDITOR&apos;S PICK
+        TOP PICKS FOR YOU
         </h2>
         <p className="text-[#737373] text-[14px]">
-          Discover the best in fashion, handpicked just for you.
+        Handpicked styles to elevate your wardrobe.
         </p>
       </div>
 
