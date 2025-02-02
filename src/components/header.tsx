@@ -16,17 +16,20 @@ import {
   FiHeart,
   FiMenu,
   FiX,
+  FiUser,
 } from "react-icons/fi"
 import Cart from "@/components/cart"
 import { useCart } from "@/context/CartContext"
+import { useAuth } from "@/context/AuthContext"
 
-const Header = () => {
+const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const router = useRouter()
   const { cartItems } = useCart()
+  const { user, logout } = useAuth()
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -37,161 +40,168 @@ const Header = () => {
     }
   }
 
+  const handleLogout = async () => {
+    try {
+      await logout()
+      router.push("/")
+    } catch (error) {
+      console.error("Failed to log out", error)
+    }
+  }
+
   return (
-    <div className="overflow-x-hidden">
-      {/* Header Section */}
-      <div className="bg-[#252B42] py-4 hidden lg:block">
-        <div className="container mx-auto flex justify-between items-center text-white text-sm">
-          {/* Contact Information */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1">
-              <FiPhone />
-              <p>(923) 238-293672</p>
-            </div>
-            <div className="flex items-center gap-1">
-              <FiMail />
-              <p>m128waheed@gmail.com</p>
-            </div>
+    <header className="bg-white shadow-md">
+      {/* Top Bar */}
+      <div className="bg-gray-900 text-white py-2 px-4 hidden lg:block">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <a href="tel:+923238293672" className="flex items-center space-x-1 hover:text-gray-300">
+              <FiPhone size={14} />
+              <span>(923) 238-293672</span>
+            </a>
+            <a href="mailto:m128waheed@gmail.com" className="flex items-center space-x-1 hover:text-gray-300">
+              <FiMail size={14} />
+              <span>m128waheed@gmail.com</span>
+            </a>
           </div>
-
-          {/* Promotion */}
-          <p className="hidden md:block">Follow Us and get a chance to win 80% off</p>
-
-          {/* Social Media Links */}
-          <div className="flex items-center gap-4">
-            <p className="hidden md:block">Follow Us:</p>
-            <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <FiInstagram />
-            </Link>
-            <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-              <FiYoutube />
-            </Link>
-            <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-              <FiFacebook />
-            </Link>
-            <Link href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-              <FiTwitter />
-            </Link>
+          <div className="flex items-center space-x-4">
+            <span>Follow Us:</span>
+            <a href="#" className="hover:text-gray-300">
+              <FiInstagram size={14} />
+            </a>
+            <a href="#" className="hover:text-gray-300">
+              <FiYoutube size={14} />
+            </a>
+            <a href="#" className="hover:text-gray-300">
+              <FiFacebook size={14} />
+            </a>
+            <a href="#" className="hover:text-gray-300">
+              <FiTwitter size={14} />
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Navbar Section */}
-      <div className="bg-white shadow-md border-b-2 border-[#E5E5E5] relative z-40">
-        <div className="container mx-auto flex items-center justify-between py-4">
+      {/* Main Header */}
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold text-[#252B42]">OutfitPlus</div>
+          <Link href="/" className="text-2xl font-bold text-gray-800">
+            OutfitPlus
+          </Link>
 
-          {/* Action Icons (Mobile and Desktop) */}
-          <div className="flex items-center gap-4 md:hidden">
-            <FiSearch
-              className="text-2xl text-[#252B42] cursor-pointer"
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-            />
-            <div className="relative">
-              <FiShoppingCart className="text-2xl text-[#252B42] cursor-pointer" onClick={() => setIsCartOpen(true)} />
-              {cartItems.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
-                  {cartItems.length}
-                </span>
-              )}
-            </div>
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
-              {isMenuOpen ? (
-                <FiX className="text-3xl text-[#252B42]" />
-              ) : (
-                <FiMenu className="text-3xl text-[#252B42]" />
-              )}
-            </button>
-          </div>
-
-          {/* Navigation Links */}
-          <nav className="hidden md:flex">
-            <ul className="flex gap-8 text-sm font-medium text-[#737373] relative">
-              <li>
-                <Link href="/" className="hover:text-[#23A6F0] transition-all">
-                  Home
-                </Link>
-              </li>
-              <li className="relative group">
-                <Link href="/product" className="flex items-center gap-1 hover:text-[#23A6F0] transition-all">
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-[#23A6F0] transition-all">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#blog" className="hover:text-[#23A6F0] transition-all">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-[#23A6F0] transition-all">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/pages" className="hover:text-[#23A6F0] transition-all">
-                  Team
-                </Link>
-              </li>
-            </ul>
+          {/* Navigation - Desktop */}
+          <nav className="hidden md:flex space-x-6">
+            <Link href="/" className="text-gray-600 hover:text-gray-900">
+              Home
+            </Link>
+            <Link href="/product" className="text-gray-600 hover:text-gray-900">
+              Shop
+            </Link>
+            <Link href="/about" className="text-gray-600 hover:text-gray-900">
+              About
+            </Link>
+            <Link href="#blog" className="text-gray-600 hover:text-gray-900">
+              Blog
+            </Link>
+            <Link href="/contact" className="text-gray-600 hover:text-gray-900">
+              Contact
+            </Link>
+            <Link href="/pages" className="text-gray-600 hover:text-gray-900">
+              Team
+            </Link>
           </nav>
 
-          {/* Action Icons for Desktop */}
-          <div className="hidden md:flex items-center gap-6 text-[#23A6F0]">
-            <button className="text-sm font-medium">Login/Register</button>
-            <FiSearch className="text-lg cursor-pointer" onClick={() => setIsSearchOpen(!isSearchOpen)} />
+          {/* Actions */}
+          <div className="flex items-center space-x-4">
+            <button onClick={() => setIsSearchOpen(!isSearchOpen)} className="text-gray-600 hover:text-gray-900">
+              <FiSearch size={20} />
+            </button>
             <div className="relative">
-              <FiShoppingCart className="text-lg cursor-pointer" onClick={() => setIsCartOpen(true)} />
-              {cartItems.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
-                  {cartItems.length}
-                </span>
-              )}
+              <button onClick={() => setIsCartOpen(true)} className="text-gray-600 hover:text-gray-900">
+                <FiShoppingCart size={20} />
+                {cartItems.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                    {cartItems.length}
+                  </span>
+                )}
+              </button>
             </div>
-            <Link href="/wishlist">
-              <FiHeart className="text-lg cursor-pointer" />
+            <Link href="/wishlist" className="text-gray-600 hover:text-gray-900">
+              <FiHeart size={20} />
             </Link>
+            {user ? (
+              <div className="relative group">
+                <button className="text-gray-600 hover:text-gray-900">
+                  <FiUser size={20} />
+                </button>
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                  <Link href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Profile
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <Link href="/auth" className="text-gray-600 hover:text-gray-900">
+                <FiUser size={20} />
+              </Link>
+            )}
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-gray-600 hover:text-gray-900">
+              {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <div
-          className={`${
-            isMenuOpen ? "block" : "hidden"
-          } md:hidden bg-white shadow-md transition-all duration-300 ease-in-out`}
-        >
-          <ul className="flex flex-col gap-6 p-4 text-[20px] text-[#737373] text-center">
-            <li>
-              <Link href="/" className="hover:text-[#23A6F0] transition-all">
-                Home
+        {isMenuOpen && (
+          <nav className="md:hidden mt-4 space-y-2">
+            <Link href="/" className="block py-2 text-gray-600 hover:text-gray-900">
+              Home
+            </Link>
+            <Link href="/product" className="block py-2 text-gray-600 hover:text-gray-900">
+              Shop
+            </Link>
+            <Link href="/about" className="block py-2 text-gray-600 hover:text-gray-900">
+              About
+            </Link>
+            <Link href="#blog" className="block py-2 text-gray-600 hover:text-gray-900">
+              Blog
+            </Link>
+            <Link href="/contact" className="block py-2 text-gray-600 hover:text-gray-900">
+              Contact
+            </Link>
+            <Link href="/pages" className="block py-2 text-gray-600 hover:text-gray-900">
+              Team
+            </Link>
+            {user ? (
+              <>
+                <Link href="/profile" className="block py-2 text-gray-600 hover:text-gray-900">
+                  Profile
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="block w-full text-left py-2 text-gray-600 hover:text-gray-900"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link href="/auth" className="block py-2 text-gray-600 hover:text-gray-900">
+                Login / Sign Up
               </Link>
-            </li>
-            <li>
-              <Link href="/product" className="hover:text-[#23A6F0] transition-all">
-                Product
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-[#23A6F0] transition-all">
-                Pricing
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-[#23A6F0] transition-all">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
+            )}
+          </nav>
+        )}
 
         {/* Search Bar */}
         {isSearchOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white shadow-md p-4">
+          <div className="mt-4">
             <form onSubmit={handleSearch} className="flex">
               <input
                 type="text"
@@ -213,7 +223,7 @@ const Header = () => {
 
       {/* Cart Component */}
       <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
-    </div>
+    </header>
   )
 }
 
