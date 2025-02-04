@@ -18,7 +18,7 @@ import {
   FiX,
   FiUser,
 } from "react-icons/fi"
-import Cart from "@/components/cart"
+import Cart from "./cart"
 import { useCart } from "@/context/CartContext"
 import { useAuth } from "@/context/AuthContext"
 
@@ -110,6 +110,9 @@ const Header: React.FC = () => {
             <Link href="/pages" className="text-gray-600 hover:text-gray-900">
               Team
             </Link>
+            <Link href="/pricing" className="text-gray-600 hover:text-gray-900">
+              Pricing
+            </Link>
           </nav>
 
           {/* Actions */}
@@ -132,13 +135,30 @@ const Header: React.FC = () => {
             </Link>
             {user ? (
               <div className="relative group">
-                <button className="text-gray-600 hover:text-gray-900">
-                  <FiUser size={20} />
+                <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+                  <img
+                    src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName || user.email}`}
+                    alt="User avatar"
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span className="hidden md:inline">{user.displayName || user.email}</span>
                 </button>
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
-                  <Link href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Profile
+                  <div className="px-4 py-2 border-b border-gray-200">
+                    <p className="text-sm font-semibold text-gray-700">{user.displayName || user.email}</p>
+                    <p className="text-xs text-gray-500">{user.email}</p>
+                  </div>
+                  <Link href="/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Dashboard
                   </Link>
+                  <Link href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Profile Settings
+                  </Link>
+                  {user.email === "admin@example.com" && (
+                    <Link href="/admin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      Admin Dashboard
+                    </Link>
+                  )}
                   <button
                     onClick={handleLogout}
                     className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -178,6 +198,9 @@ const Header: React.FC = () => {
             </Link>
             <Link href="/pages" className="block py-2 text-gray-600 hover:text-gray-900">
               Team
+            </Link>
+            <Link href="/pricing" className="block py-2 text-gray-600 hover:text-gray-900">
+              Pricing
             </Link>
             {user ? (
               <>
