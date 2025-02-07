@@ -1,10 +1,15 @@
-import Image from "next/image";
-import { FaClock, FaComment, FaChevronRight } from "react-icons/fa";
-import React from "react";
+"use client"
+
+import Image from "next/image"
+import { FaClock, FaComment, FaChevronRight, FaHeart, FaEye } from "react-icons/fa"
+import { useRouter } from "next/navigation"
+import { motion } from "framer-motion"
 
 const FeaturedPosts = () => {
+  const router = useRouter()
   const posts = [
     {
+      id: 1,
       image: "post1.png",
       tags: ["Fashion", "Accessories", "Trends"],
       title: "The Best Spring Styles for Men (Trendy and Comfortable)",
@@ -12,8 +17,11 @@ const FeaturedPosts = () => {
         "Explore the latest fashion trends for men this spring. From casual wear to formal, discover how to stay stylish and comfortable.",
       date: "22 April 2021",
       comments: "10 Comments",
+      likes: 245,
+      views: 1200,
     },
     {
+      id: 2,
       image: "post2.png",
       tags: ["Casual Wear", "Style Tips", "Outfit Ideas"],
       title: "Must-Have Accessories for Women in 2023",
@@ -21,8 +29,11 @@ const FeaturedPosts = () => {
         "Discover the essential accessories every woman needs this year to elevate her style. From bags to jewelry, we've got you covered.",
       date: "15 May 2023",
       comments: "15 Comments",
+      likes: 312,
+      views: 1500,
     },
     {
+      id: 3,
       image: "post3.png",
       tags: ["Kids", "Trendy", "Seasonal Picks"],
       title: "Top Summer Outfit Ideas for Kids",
@@ -30,87 +41,102 @@ const FeaturedPosts = () => {
         "Keep your kids looking stylish and feeling cool this summer with our top outfit picks for every occasion.",
       date: "5 June 2022",
       comments: "8 Comments",
+      likes: 178,
+      views: 950,
     },
-  ];
+  ]
+
+  const handlePostClick = (postId: number) => {
+    router.push(`/blog/${postId}`)
+  }
 
   return (
-    <div className="mt-32">
-      <div className="text-center mb-20">
-        <h3
-          id="blog"
-          className="text-[#23A6F0] text-[14px] font-bold uppercase tracking-wide"
-        >
+    <div className="mt-32 px-4 sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-20"
+      >
+        <h3 id="blog" className="text-blue-600 text-lg font-bold uppercase tracking-wide">
           Trending Articles
         </h3>
-        <h2 className="text-[#252B42] text-[40px] font-bold">Featured Posts</h2>
-        <p className="text-[#737373] text-[14px] max-w-2xl mx-auto">
-          Stay up to date with the latest trends and tips in fashion,
-          accessories, and more for Men, Women, and Kids.
+        <h2 className="text-4xl font-bold mt-2 mb-4">Featured Posts</h2>
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          Stay up to date with the latest trends and tips in fashion, accessories, and more for Men, Women, and Kids.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-wrap justify-center items-center gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {posts.map((post, index) => (
-          <div
-            key={index}
-            className="max-w-xs sm:max-w-sm bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:-translate-y-2 flex flex-col items-center"
+          <motion.div
+            key={post.id}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ scale: 1.03 }}
+            className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col h-full cursor-pointer"
+            onClick={() => handlePostClick(post.id)}
           >
-            <div className="relative group">
-              <div className="absolute top-4 left-4 bg-[#E74040] text-white py-1 px-2 text-[14px] font-bold h-[24px] w-[58px] flex items-center justify-center">
+            <div className="relative">
+              <div className="absolute top-4 left-4 bg-red-500 text-white py-1 px-2 text-sm font-bold rounded-full">
                 NEW
               </div>
-
-              <Image
-                src={`/${post.image}`}
-                alt="post"
-                width={348}
-                height={300}
-                className="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-105"
-              />
+              <Image src={`/${post.image}`} alt="post" width={400} height={250} className="w-full h-48 object-cover" />
             </div>
 
-            <div className="p-4 text-center">
-              <div className="flex justify-center space-x-3 mb-3">
-                {post.tags.map((tag, tagIndex) => (
-                  <span
-                    key={tagIndex}
-                    className="text-[#8EC2F2] py-1 px-3 rounded-full text-[12px] bg-gray-100"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <h3 className="text-[20px] text-[#252B42] mt-4">{post.title}</h3>
-
-              <p className="text-[#737373] text-[14px] mt-2">
-                {post.description}
-              </p>
-
-              <div className="flex justify-between items-center mt-4 text-[12px] text-[#737373]">
-                <div className="flex items-center space-x-2">
-                  <FaClock className="w-4 h-4 text-[#23A6F0]" />
-                  <span>{post.date}</span>
+            <div className="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {post.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="text-blue-600 bg-blue-100 py-1 px-2 rounded-full text-xs font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
 
-                <div className="flex items-center space-x-2">
-                  <FaComment className="w-4 h-4 text-[#23856D]" />
-                  <span className="text-[#737373]">{post.comments}</span>
-                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">{post.title}</h3>
+
+                <p className="text-gray-600 text-sm mb-4 line-clamp-2">{post.description}</p>
               </div>
 
-              <div className="mt-4 flex items-center justify-start">
-                <button className="text-[#737373] text-sm font-bold py-2 px-4 rounded-md bg-transparent hover:bg-[#2DC071] hover:text-white transition-all duration-300 flex items-center space-x-2">
-                  <span>Read Full Article</span>
-                  <FaChevronRight className="inline-block text-[#737373] group-hover:text-white" />
-                </button>
+              <div className="mt-4">
+                <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
+                  <div className="flex items-center">
+                    <FaClock className="mr-2 text-blue-500" />
+                    <span>{post.date}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaComment className="mr-2 text-green-500" />
+                    <span>{post.comments}</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center text-sm text-gray-500">
+                  <div className="flex items-center">
+                    <FaHeart className="mr-2 text-red-500" />
+                    <span>{post.likes} likes</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaEye className="mr-2 text-purple-500" />
+                    <span>{post.views} views</span>
+                  </div>
+                </div>
+
+                <div className="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                  Read Full Article
+                  <FaChevronRight className="ml-2" />
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FeaturedPosts;
+export default FeaturedPosts
+
