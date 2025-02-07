@@ -4,9 +4,11 @@ import { FiChevronRight } from "react-icons/fi";
 export default function Hero() {
   return (
     <div className="text-center py-10">
-      <h2 className="text-[#737373] font-bold text-[16px] mt-5">OUR COLLECTION</h2>
+      <h2 className="text-[#737373] font-bold text-[16px] mt-5">
+        OUR COLLECTION
+      </h2>
       <h1 className="text-[46px] font-bold mt-3 text-[#252B42]">
-      Discover Products That Inspire
+        Discover Products That Inspire
       </h1>
       <p className="text-[#252B42] mt-5 font-bold text-[14px] flex justify-center items-center gap-1">
         Home <FiChevronRight className="text-[#BDBDBD] text-[25px]" />{" "}

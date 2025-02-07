@@ -12,15 +12,27 @@ const Footer = () => {
         {/* Right: Icons */}
         <div className="flex space-x-6">
           {/* Facebook Icon */}
-          <Link href="https://www.facebook.com/OutfitPlus" aria-label="Facebook" className="text-[#23A6F0] hover:opacity-75">
+          <Link
+            href="https://www.facebook.com/OutfitPlus"
+            aria-label="Facebook"
+            className="text-[#23A6F0] hover:opacity-75"
+          >
             <FaFacebookF className="w-6 h-6" />
           </Link>
           {/* Instagram Icon */}
-          <Link href="https://www.instagram.com/OutfitPlus" aria-label="Instagram" className="text-[#23A6F0] hover:opacity-75">
+          <Link
+            href="https://www.instagram.com/OutfitPlus"
+            aria-label="Instagram"
+            className="text-[#23A6F0] hover:opacity-75"
+          >
             <FaInstagram className="w-6 h-6" />
           </Link>
           {/* Twitter Icon */}
-          <Link href="https://www.twitter.com/OutfitPlus" aria-label="Twitter" className="text-[#23A6F0] hover:opacity-75">
+          <Link
+            href="https://www.twitter.com/OutfitPlus"
+            aria-label="Twitter"
+            className="text-[#23A6F0] hover:opacity-75"
+          >
             <FaTwitter className="w-6 h-6" />
           </Link>
         </div>
@@ -30,51 +42,125 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
           {/* Company Info */}
           <div className="flex-1 min-w-[120px]">
-            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">Company Info</h3>
+            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">
+              Company Info
+            </h3>
             <ul className="text-[#737373] space-y-1 text-[14px] font-bold">
-              <li><Link href="#" className="hover:underline">About Us</Link></li>
-              <li><Link href="#" className="hover:underline">Careers</Link></li>
-              <li><Link href="#" className="hover:underline">We are hiring</Link></li>
-              <li><Link href="#" className="hover:underline">Blog</Link></li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  We are hiring
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Legal */}
           <div className="flex-1 min-w-[120px]">
-            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">Legal</h3>
+            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">
+              Legal
+            </h3>
             <ul className="text-[#737373] space-y-1 text-[14px] font-bold">
-              <li><Link href="#" className="hover:underline">Terms of Service</Link></li>
-              <li><Link href="#" className="hover:underline">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:underline">Cookie Policy</Link></li>
-              <li><Link href="#" className="hover:underline">Compliance</Link></li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Cookie Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Compliance
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Features */}
           <div className="flex-1 min-w-[120px]">
-            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">Features</h3>
+            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">
+              Features
+            </h3>
             <ul className="text-[#737373] space-y-1 text-[14px] font-bold">
-              <li><Link href="#" className="hover:underline">Business Marketing</Link></li>
-              <li><Link href="#" className="hover:underline">User Analytics</Link></li>
-              <li><Link href="#" className="hover:underline">Live Chat</Link></li>
-              <li><Link href="#" className="hover:underline">Unlimited Support</Link></li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Business Marketing
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  User Analytics
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Live Chat
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Unlimited Support
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Resources */}
           <div className="flex-1 min-w-[120px]">
-            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">Resources</h3>
+            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">
+              Resources
+            </h3>
             <ul className="text-[#737373] space-y-1 text-[14px] font-bold">
-              <li><Link href="#" className="hover:underline">iOS & Android</Link></li>
-              <li><Link href="#" className="hover:underline">Watch a Demo</Link></li>
-              <li><Link href="#" className="hover:underline">Customers</Link></li>
-              <li><Link href="#" className="hover:underline">API</Link></li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  iOS & Android
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Watch a Demo
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Customers
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  API
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Get in Touch */}
           <div className="flex-1 min-w-[150px]">
-            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">Get In Touch</h3>
+            <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">
+              Get In Touch
+            </h3>
             <div>
               <div className="flex">
                 <input
@@ -86,14 +172,18 @@ const Footer = () => {
                   Subscribe
                 </button>
               </div>
-              <p className="text-[#737373] text-[12px] mt-2">Join us for updates.</p>
+              <p className="text-[#737373] text-[12px] mt-2">
+                Join us for updates.
+              </p>
             </div>
           </div>
         </div>
 
         {/* Bottom Text */}
         <div className="mt-16 text-left bg-[#FAFAFA] py-9">
-          <p className="text-[#737373] font-bold text-[14px]">Crafted with care by OutfitPlus, All Rights Reserved</p>
+          <p className="text-[#737373] font-bold text-[14px]">
+            Crafted with care by OutfitPlus, All Rights Reserved
+          </p>
         </div>
       </div>
     </footer>

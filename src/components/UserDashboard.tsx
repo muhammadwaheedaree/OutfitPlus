@@ -1,13 +1,19 @@
-import type React from "react"
-import { useAuth } from "@/context/AuthContext"
-import { FiUser, FiMail, FiCalendar, FiHeart, FiShoppingBag } from "react-icons/fi"
-import Link from "next/link"
+import type React from "react";
+import { useAuth } from "@/context/AuthContext";
+import {
+  FiUser,
+  FiMail,
+  FiCalendar,
+  FiHeart,
+  FiShoppingBag,
+} from "react-icons/fi";
+import Link from "next/link";
 
 const UserDashboard: React.FC = () => {
-  const { user } = useAuth()
+  const { user } = useAuth();
 
   if (!user) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
@@ -33,7 +39,9 @@ const UserDashboard: React.FC = () => {
               icon={<FiCalendar className="text-indigo-500" />}
               label="Member since"
               value={
-                user.metadata.creationTime ? new Date(user.metadata.creationTime).toLocaleDateString() : "Not available"
+                user.metadata.creationTime
+                  ? new Date(user.metadata.creationTime).toLocaleDateString()
+                  : "Not available"
               }
             />
           </div>
@@ -54,16 +62,20 @@ const UserDashboard: React.FC = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 interface UserProfileItemProps {
-  icon: React.ReactNode
-  label: string
-  value: string
+  icon: React.ReactNode;
+  label: string;
+  value: string;
 }
 
-const UserProfileItem: React.FC<UserProfileItemProps> = ({ icon, label, value }) => (
+const UserProfileItem: React.FC<UserProfileItemProps> = ({
+  icon,
+  label,
+  value,
+}) => (
   <div className="flex items-center space-x-3">
     <div className="flex-shrink-0">{icon}</div>
     <div>
@@ -71,16 +83,21 @@ const UserProfileItem: React.FC<UserProfileItemProps> = ({ icon, label, value })
       <p className="text-base font-semibold text-gray-900">{value}</p>
     </div>
   </div>
-)
+);
 
 interface DashboardCardProps {
-  icon: React.ReactNode
-  title: string
-  description: string
-  link: string
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  link: string;
 }
 
-const DashboardCard: React.FC<DashboardCardProps> = ({ icon, title, description, link }) => (
+const DashboardCard: React.FC<DashboardCardProps> = ({
+  icon,
+  title,
+  description,
+  link,
+}) => (
   <Link href={link}>
     <div className="bg-white overflow-hidden shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
       <div className="p-6">
@@ -94,7 +111,6 @@ const DashboardCard: React.FC<DashboardCardProps> = ({ icon, title, description,
       </div>
     </div>
   </Link>
-)
+);
 
-export default UserDashboard
-
+export default UserDashboard;

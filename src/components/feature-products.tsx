@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import ProductCard, { type Product } from "./product-card"
-import { getFeaturedProducts } from "@/sanity/lib/client"
+import { useEffect, useState } from "react";
+import ProductCard, { type Product } from "./product-card";
+import { getFeaturedProducts } from "@/sanity/lib/client";
 
 const FeatureProducts: React.FC = () => {
-  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([])
+  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
-      const result = await getFeaturedProducts()
-      setFeaturedProducts(result)
-    }
+      const result = await getFeaturedProducts();
+      setFeaturedProducts(result);
+    };
 
-    fetchFeaturedProducts()
-  }, [])
+    fetchFeaturedProducts();
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center text-center mt-5 mb-7 overflow-x-hidden">
@@ -25,8 +25,7 @@ const FeatureProducts: React.FC = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FeatureProducts
-
+export default FeatureProducts;

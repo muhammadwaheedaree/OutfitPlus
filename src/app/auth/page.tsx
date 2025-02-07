@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState } from "react"
-import Login from "@/components/Login"
-import Signup from "@/components/Signup"
+import type React from "react";
+import { useState } from "react";
+import Login from "@/components/Login";
+import Signup from "@/components/Signup";
 
 const AuthPage: React.FC = () => {
-  const [isLogin, setIsLogin] = useState(true)
+  const [isLogin, setIsLogin] = useState(true);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -16,18 +16,24 @@ const AuthPage: React.FC = () => {
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
           Or{" "}
-          <button onClick={() => setIsLogin(!isLogin)} className="font-medium text-indigo-600 hover:text-indigo-500">
-            {isLogin ? "create a new account" : "sign in to your existing account"}
+          <button
+            onClick={() => setIsLogin(!isLogin)}
+            className="font-medium text-indigo-600 hover:text-indigo-500"
+          >
+            {isLogin
+              ? "create a new account"
+              : "sign in to your existing account"}
           </button>
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">{isLogin ? <Login /> : <Signup />}</div>
+        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          {isLogin ? <Login /> : <Signup />}
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AuthPage
-
+export default AuthPage;

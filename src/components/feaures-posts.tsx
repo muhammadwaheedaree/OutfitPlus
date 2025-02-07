@@ -42,9 +42,7 @@ const FeaturedPosts = () => {
         >
           Trending Articles
         </h3>
-        <h2 className="text-[#252B42] text-[40px] font-bold">
-          Featured Posts
-        </h2>
+        <h2 className="text-[#252B42] text-[40px] font-bold">Featured Posts</h2>
         <p className="text-[#737373] text-[14px] max-w-2xl mx-auto">
           Stay up to date with the latest trends and tips in fashion,
           accessories, and more for Men, Women, and Kids.

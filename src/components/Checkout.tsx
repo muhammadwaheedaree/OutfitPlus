@@ -1,14 +1,20 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState } from "react"
-import { useCart } from "@/context/CartContext"
-import { FiArrowLeft, FiArrowRight, FiCreditCard, FiMapPin, FiShoppingBag } from "react-icons/fi"
-import Image from "next/image"
+import type React from "react";
+import { useState } from "react";
+import { useCart } from "@/context/CartContext";
+import {
+  FiArrowLeft,
+  FiArrowRight,
+  FiCreditCard,
+  FiMapPin,
+  FiShoppingBag,
+} from "react-icons/fi";
+import Image from "next/image";
 
 const Checkout: React.FC = () => {
-  const [step, setStep] = useState(1)
-  const { cartItems, getCartTotal } = useCart()
+  const [step, setStep] = useState(1);
+  const { cartItems, getCartTotal } = useCart();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -21,19 +27,19 @@ const Checkout: React.FC = () => {
     cardName: "",
     expiryDate: "",
     cvv: "",
-  })
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Here you would typically send the order to your backend
-    console.log("Order submitted:", { formData, cartItems })
+    console.log("Order submitted:", { formData, cartItems });
     // Reset cart and redirect to a confirmation page
-  }
+  };
 
   const renderStep = () => {
     switch (step) {
@@ -111,7 +117,7 @@ const Checkout: React.FC = () => {
               required
             />
           </div>
-        )
+        );
       case 2:
         return (
           <div className="space-y-4">
@@ -157,7 +163,7 @@ const Checkout: React.FC = () => {
               />
             </div>
           </div>
-        )
+        );
       case 3:
         return (
           <div className="space-y-4">
@@ -165,7 +171,10 @@ const Checkout: React.FC = () => {
               <FiShoppingBag className="mr-2" /> Order Summary
             </h2>
             {cartItems.map((item) => (
-              <div key={item.id} className="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
+              <div
+                key={item.id}
+                className="flex justify-between items-center bg-gray-50 p-4 rounded-lg"
+              >
                 <div className="flex items-center">
                   <Image
                     src={item.imageUrl || "/placeholder.svg"}
@@ -186,11 +195,11 @@ const Checkout: React.FC = () => {
               <span>${getCartTotal().toFixed(2)}</span>
             </div>
           </div>
-        )
+        );
       default:
-        return null
+        return null;
     }
-  }
+  };
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg">
@@ -225,8 +234,7 @@ const Checkout: React.FC = () => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Checkout
-
+export default Checkout;

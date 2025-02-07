@@ -1,55 +1,57 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState } from "react"
-import { useAuth } from "@/context/AuthContext"
-import { FiMail, FiLock } from "react-icons/fi"
-import { FcGoogle } from "react-icons/fc"
-import { useRouter } from "next/navigation"
+import type React from "react";
+import { useState } from "react";
+import { useAuth } from "@/context/AuthContext";
+import { FiMail, FiLock } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
+import { useRouter } from "next/navigation";
 
 const Signup: React.FC = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const { signup, loginWithGoogle } = useAuth()
-  const router = useRouter()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { signup, loginWithGoogle } = useAuth();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError("")
+    e.preventDefault();
+    setError("");
 
     if (password !== confirmPassword) {
-      return setError("Passwords do not match")
+      return setError("Passwords do not match");
     }
 
-    setLoading(true)
+    setLoading(true);
     try {
-      await signup(email, password)
-      router.push("/dashboard")
+      await signup(email, password);
+      router.push("/dashboard");
     } catch (error) {
-      setError("Failed to create an account.")
+      setError("Failed to create an account.");
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   const handleGoogleSignup = async () => {
-    setError("")
-    setLoading(true)
+    setError("");
+    setLoading(true);
     try {
-      await loginWithGoogle()
-      router.push("/dashboard")
+      await loginWithGoogle();
+      router.push("/dashboard");
     } catch (error) {
-      setError("Failed to sign up with Google.")
+      setError("Failed to sign up with Google.");
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return (
     <div className="max-w-md w-full space-y-8">
       <div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Create your account
+        </h2>
       </div>
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
         <input type="hidden" name="remember" defaultValue="true" />
@@ -132,7 +134,9 @@ const Signup: React.FC = () => {
             <div className="w-full border-t border-gray-300" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-2 bg-white text-gray-500">Or continue with</span>
+            <span className="px-2 bg-white text-gray-500">
+              Or continue with
+            </span>
           </div>
         </div>
 
@@ -148,8 +152,7 @@ const Signup: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
-
+export default Signup;

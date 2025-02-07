@@ -1,55 +1,68 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { getReviews, submitReview } from "@/sanity/lib/client"
-import { Star } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { useState, useEffect } from "react";
+import { getReviews, submitReview } from "@/sanity/lib/client";
+import { Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 interface Review {
-  _id: string
-  rating: number
-  comment: string
-  userName: string
-  createdAt: string
+  _id: string;
+  rating: number;
+  comment: string;
+  userName: string;
+  createdAt: string;
 }
 
-export default function ReviewsAndRatings({ productId }: { productId: string }) {
-  const [reviews, setReviews] = useState<Review[]>([])
-  const [averageRating, setAverageRating] = useState(0)
-  const [newReview, setNewReview] = useState({ rating: 0, comment: "", userName: "" })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [error, setError] = useState("")
+export default function ReviewsAndRatings({
+  productId,
+}: {
+  productId: string;
+}) {
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [averageRating, setAverageRating] = useState(0);
+  const [newReview, setNewReview] = useState({
+    rating: 0,
+    comment: "",
+    userName: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     async function fetchReviews() {
-      const fetchedReviews = await getReviews(productId)
-      setReviews(fetchedReviews)
+      const fetchedReviews = await getReviews(productId);
+      setReviews(fetchedReviews);
       const avgRating =
-        fetchedReviews.reduce((acc: number, review: Review) => acc + review.rating, 0) / fetchedReviews.length
-      setAverageRating(avgRating || 0)
+        fetchedReviews.reduce(
+          (acc: number, review: Review) => acc + review.rating,
+          0
+        ) / fetchedReviews.length;
+      setAverageRating(avgRating || 0);
     }
-    fetchReviews()
-  }, [productId])
+    fetchReviews();
+  }, [productId]);
 
   const handleSubmitReview = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setError("")
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
     try {
-      const submittedReview = await submitReview(productId, newReview)
-      setReviews([submittedReview, ...reviews])
-      setNewReview({ rating: 0, comment: "", userName: "" })
+      const submittedReview = await submitReview(productId, newReview);
+      setReviews([submittedReview, ...reviews]);
+      setNewReview({ rating: 0, comment: "", userName: "" });
       // Update average rating
-      const newAvgRating = (averageRating * reviews.length + submittedReview.rating) / (reviews.length + 1)
-      setAverageRating(newAvgRating)
+      const newAvgRating =
+        (averageRating * reviews.length + submittedReview.rating) /
+        (reviews.length + 1);
+      setAverageRating(newAvgRating);
     } catch (err) {
-      setError("Failed to submit review. Please try again.")
+      setError("Failed to submit review. Please try again.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -62,12 +75,16 @@ export default function ReviewsAndRatings({ productId }: { productId: string }) 
               <Star
                 key={star}
                 className={`h-6 w-6 ${
-                  star <= Math.round(averageRating) ? "text-yellow-400 fill-current" : "text-gray-300"
+                  star <= Math.round(averageRating)
+                    ? "text-yellow-400 fill-current"
+                    : "text-gray-300"
                 }`}
               />
             ))}
           </div>
-          <p className="text-sm text-gray-500 mt-1">Based on {reviews.length} reviews</p>
+          <p className="text-sm text-gray-500 mt-1">
+            Based on {reviews.length} reviews
+          </p>
         </div>
       </div>
       <div className="mb-8">
@@ -81,7 +98,9 @@ export default function ReviewsAndRatings({ productId }: { productId: string }) 
               type="text"
               id="userName"
               value={newReview.userName}
-              onChange={(e) => setNewReview({ ...newReview, userName: e.target.value })}
+              onChange={(e) =>
+                setNewReview({ ...newReview, userName: e.target.value })
+              }
               required
             />
           </div>
@@ -92,7 +111,9 @@ export default function ReviewsAndRatings({ productId }: { productId: string }) 
             <select
               id="rating"
               value={newReview.rating}
-              onChange={(e) => setNewReview({ ...newReview, rating: Number(e.target.value) })}
+              onChange={(e) =>
+                setNewReview({ ...newReview, rating: Number(e.target.value) })
+              }
               className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               required
             >
@@ -111,7 +132,9 @@ export default function ReviewsAndRatings({ productId }: { productId: string }) 
             <Textarea
               id="comment"
               value={newReview.comment}
-              onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+              onChange={(e) =>
+                setNewReview({ ...newReview, comment: e.target.value })
+              }
               rows={4}
               required
             />
@@ -138,11 +161,12 @@ export default function ReviewsAndRatings({ productId }: { productId: string }) 
               <p className="font-semibold">{review.userName}</p>
             </div>
             <p className="text-gray-700 mt-2">{review.comment}</p>
-            <p className="text-sm text-gray-500 mt-1">{new Date(review.createdAt).toLocaleDateString()}</p>
+            <p className="text-sm text-gray-500 mt-1">
+              {new Date(review.createdAt).toLocaleDateString()}
+            </p>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
-

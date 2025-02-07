@@ -1,7 +1,6 @@
 import { FiChevronRight } from "react-icons/fi";
 
 const Price = () => {
-
   return (
     <div className="flex flex-col items-center w-full  py-20">
       {/* Header Section */}
@@ -20,4 +19,3 @@ const Price = () => {
 };
 
 export default Price;
-

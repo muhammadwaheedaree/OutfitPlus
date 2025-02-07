@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState } from "react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
+import type React from "react";
+import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   FiPhone,
   FiMail,
@@ -17,37 +17,37 @@ import {
   FiMenu,
   FiX,
   FiUser,
-} from "react-icons/fi"
-import Cart from "./cart"
-import { useCart } from "@/context/CartContext"
-import { useAuth } from "@/context/AuthContext"
+} from "react-icons/fi";
+import Cart from "./cart";
+import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
 
 const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [isCartOpen, setIsCartOpen] = useState(false)
-  const router = useRouter()
-  const { cartItems } = useCart()
-  const { user, logout } = useAuth()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const router = useRouter();
+  const { cartItems } = useCart();
+  const { user, logout } = useAuth();
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/product?search=${encodeURIComponent(searchQuery)}`)
-      setIsSearchOpen(false)
-      setSearchQuery("")
+      router.push(`/product?search=${encodeURIComponent(searchQuery)}`);
+      setIsSearchOpen(false);
+      setSearchQuery("");
     }
-  }
+  };
 
   const handleLogout = async () => {
     try {
-      await logout()
-      router.push("/")
+      await logout();
+      router.push("/");
     } catch (error) {
-      console.error("Failed to log out", error)
+      console.error("Failed to log out", error);
     }
-  }
+  };
 
   return (
     <header className="bg-white shadow-md">
@@ -55,11 +55,17 @@ const Header: React.FC = () => {
       <div className="bg-gray-900 text-white py-2 px-4 hidden lg:block">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
-            <a href="tel:+923238293672" className="flex items-center space-x-1 hover:text-gray-300">
+            <a
+              href="tel:+923238293672"
+              className="flex items-center space-x-1 hover:text-gray-300"
+            >
               <FiPhone size={14} />
               <span>(923) 238-293672</span>
             </a>
-            <a href="mailto:m128waheed@gmail.com" className="flex items-center space-x-1 hover:text-gray-300">
+            <a
+              href="mailto:m128waheed@gmail.com"
+              className="flex items-center space-x-1 hover:text-gray-300"
+            >
               <FiMail size={14} />
               <span>m128waheed@gmail.com</span>
             </a>
@@ -117,11 +123,17 @@ const Header: React.FC = () => {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <button onClick={() => setIsSearchOpen(!isSearchOpen)} className="text-gray-600 hover:text-gray-900">
+            <button
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              className="text-gray-600 hover:text-gray-900"
+            >
               <FiSearch size={20} />
             </button>
             <div className="relative">
-              <button onClick={() => setIsCartOpen(true)} className="text-gray-600 hover:text-gray-900">
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className="text-gray-600 hover:text-gray-900"
+              >
                 <FiShoppingCart size={20} />
                 {cartItems.length > 0 && (
                   <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
@@ -130,32 +142,51 @@ const Header: React.FC = () => {
                 )}
               </button>
             </div>
-            <Link href="/wishlist" className="text-gray-600 hover:text-gray-900">
+            <Link
+              href="/wishlist"
+              className="text-gray-600 hover:text-gray-900"
+            >
               <FiHeart size={20} />
             </Link>
             {user ? (
               <div className="relative group">
                 <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
                   <img
-                    src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName || user.email}`}
+                    src={
+                      user.photoURL ||
+                      `https://ui-avatars.com/api/?name=${user.displayName || user.email}`
+                    }
                     alt="User avatar"
                     className="w-8 h-8 rounded-full"
                   />
-                  <span className="hidden md:inline">{user.displayName || user.email}</span>
+                  <span className="hidden md:inline">
+                    {user.displayName || user.email}
+                  </span>
                 </button>
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
                   <div className="px-4 py-2 border-b border-gray-200">
-                    <p className="text-sm font-semibold text-gray-700">{user.displayName || user.email}</p>
+                    <p className="text-sm font-semibold text-gray-700">
+                      {user.displayName || user.email}
+                    </p>
                     <p className="text-xs text-gray-500">{user.email}</p>
                   </div>
-                  <Link href="/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <Link
+                    href="/dashboard"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
                     Dashboard
                   </Link>
-                  <Link href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <Link
+                    href="/profile"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
                     Profile Settings
                   </Link>
                   {user.email === "admin@example.com" && (
-                    <Link href="/admin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <Link
+                      href="/admin"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
                       Admin Dashboard
                     </Link>
                   )}
@@ -172,7 +203,10 @@ const Header: React.FC = () => {
                 <FiUser size={20} />
               </Link>
             )}
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-gray-600 hover:text-gray-900">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden text-gray-600 hover:text-gray-900"
+            >
               {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
           </div>
@@ -181,30 +215,54 @@ const Header: React.FC = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <nav className="md:hidden mt-4 space-y-2">
-            <Link href="/" className="block py-2 text-gray-600 hover:text-gray-900">
+            <Link
+              href="/"
+              className="block py-2 text-gray-600 hover:text-gray-900"
+            >
               Home
             </Link>
-            <Link href="/product" className="block py-2 text-gray-600 hover:text-gray-900">
+            <Link
+              href="/product"
+              className="block py-2 text-gray-600 hover:text-gray-900"
+            >
               Shop
             </Link>
-            <Link href="/about" className="block py-2 text-gray-600 hover:text-gray-900">
+            <Link
+              href="/about"
+              className="block py-2 text-gray-600 hover:text-gray-900"
+            >
               About
             </Link>
-            <Link href="#blog" className="block py-2 text-gray-600 hover:text-gray-900">
+            <Link
+              href="#blog"
+              className="block py-2 text-gray-600 hover:text-gray-900"
+            >
               Blog
             </Link>
-            <Link href="/contact" className="block py-2 text-gray-600 hover:text-gray-900">
+            <Link
+              href="/contact"
+              className="block py-2 text-gray-600 hover:text-gray-900"
+            >
               Contact
             </Link>
-            <Link href="/pages" className="block py-2 text-gray-600 hover:text-gray-900">
+            <Link
+              href="/pages"
+              className="block py-2 text-gray-600 hover:text-gray-900"
+            >
               Team
             </Link>
-            <Link href="/pricing" className="block py-2 text-gray-600 hover:text-gray-900">
+            <Link
+              href="/pricing"
+              className="block py-2 text-gray-600 hover:text-gray-900"
+            >
               Pricing
             </Link>
             {user ? (
               <>
-                <Link href="/profile" className="block py-2 text-gray-600 hover:text-gray-900">
+                <Link
+                  href="/profile"
+                  className="block py-2 text-gray-600 hover:text-gray-900"
+                >
                   Profile
                 </Link>
                 <button
@@ -215,7 +273,10 @@ const Header: React.FC = () => {
                 </button>
               </>
             ) : (
-              <Link href="/auth" className="block py-2 text-gray-600 hover:text-gray-900">
+              <Link
+                href="/auth"
+                className="block py-2 text-gray-600 hover:text-gray-900"
+              >
                 Login / Sign Up
               </Link>
             )}
@@ -247,8 +308,7 @@ const Header: React.FC = () => {
       {/* Cart Component */}
       <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
-  )
-}
+  );
+};
 
-export default Header
-
+export default Header;

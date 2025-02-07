@@ -1,25 +1,27 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import ProductCard, { type Product } from "@/components/product-card"
-import { getProductById } from "@/sanity/lib/client"
-import { Heart } from "lucide-react"
+import { useState, useEffect } from "react";
+import ProductCard, { type Product } from "@/components/product-card";
+import { getProductById } from "@/sanity/lib/client";
+import { Heart } from "lucide-react";
 
 export default function WishlistPage() {
-  const [wishlistProducts, setWishlistProducts] = useState<Product[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [wishlistProducts, setWishlistProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchWishlistProducts = async () => {
-      setIsLoading(true)
-      const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]")
-      const products = await Promise.all(wishlist.map((id: string) => getProductById(id)))
-      setWishlistProducts(products.filter(Boolean))
-      setIsLoading(false)
-    }
+      setIsLoading(true);
+      const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+      const products = await Promise.all(
+        wishlist.map((id: string) => getProductById(id))
+      );
+      setWishlistProducts(products.filter(Boolean));
+      setIsLoading(false);
+    };
 
-    fetchWishlistProducts()
-  }, [])
+    fetchWishlistProducts();
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -45,6 +47,5 @@ export default function WishlistPage() {
         </div>
       )}
     </div>
-  )
+  );
 }
-

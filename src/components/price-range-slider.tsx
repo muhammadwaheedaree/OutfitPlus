@@ -1,21 +1,25 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import * as Slider from "@radix-ui/react-slider"
+import React, { useState } from "react";
+import * as Slider from "@radix-ui/react-slider";
 
 interface PriceRangeSliderProps {
-  min: number
-  max: number
-  onChange: (values: [number, number]) => void
+  min: number;
+  max: number;
+  onChange: (values: [number, number]) => void;
 }
 
-export function PriceRangeSlider({ min, max, onChange }: PriceRangeSliderProps) {
-  const [values, setValues] = useState<[number, number]>([min, max])
+export function PriceRangeSlider({
+  min,
+  max,
+  onChange,
+}: PriceRangeSliderProps) {
+  const [values, setValues] = useState<[number, number]>([min, max]);
 
   const handleChange = (newValues: number[]) => {
-    setValues(newValues as [number, number])
-    onChange(newValues as [number, number])
-  }
+    setValues(newValues as [number, number]);
+    onChange(newValues as [number, number]);
+  };
 
   return (
     <div className="w-full max-w-sm">
@@ -44,6 +48,5 @@ export function PriceRangeSlider({ min, max, onChange }: PriceRangeSliderProps) 
         <span>${values[1]}</span>
       </div>
     </div>
-  )
+  );
 }
-

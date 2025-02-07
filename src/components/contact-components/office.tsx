@@ -8,7 +8,7 @@ const Office = () => {
         <FiPhone className="text-[#23A6F0] text-[48px] w-[72px] h-[72px]" />
       ),
       title1: "support@outfitplus.com", // Updated Email for your website
-      title2: "sales@outfitplus.com",  // Updated Email for your website
+      title2: "sales@outfitplus.com", // Updated Email for your website
       description: "Get Support",
       button: "Submit Request",
     },
@@ -17,7 +17,7 @@ const Office = () => {
         <FiMapPin className="text-[#23A6F0] text-[48px] w-[72px] h-[72px]" />
       ),
       title1: "123 Fashion Street, LA", // Updated Address for your website
-      title2: "California, USA",         // Updated Address for your website
+      title2: "California, USA", // Updated Address for your website
       description: "Find Us",
       button: "View on Map",
     },

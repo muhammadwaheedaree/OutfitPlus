@@ -8,7 +8,9 @@ const ContactUs = () => {
     <div className="flex flex-col md:flex-row items-center justify-between px-4 py-8">
       {/* Text Section */}
       <div className="w-full text-center md:text-left md:w-1/2 md:ml-16">
-        <h3 className="text-[#252B42] font-bold text-[16px] sm:text-[18px] md:text-[20px] mb-6">CONTACT US</h3>
+        <h3 className="text-[#252B42] font-bold text-[16px] sm:text-[18px] md:text-[20px] mb-6">
+          CONTACT US
+        </h3>
         <h1 className="text-[#252B42] font-bold text-[32px] sm:text-[40px] md:text-[48px] mb-6">
           Get in touch <br />
           today!

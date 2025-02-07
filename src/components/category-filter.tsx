@@ -1,39 +1,43 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Check } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
 
 interface CategoryFilterProps {
-  categories: string[]
-  activeCategory: string
-  onSelectCategory: (category: string) => void
+  categories: string[];
+  activeCategory: string;
+  onSelectCategory: (category: string) => void;
 }
 
-export function CategoryFilter({ categories, activeCategory, onSelectCategory }: CategoryFilterProps) {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+export function CategoryFilter({
+  categories,
+  activeCategory,
+  onSelectCategory,
+}: CategoryFilterProps) {
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   const handleCategoryClick = (category: string) => {
     if (category === "All") {
-      setSelectedCategories([])
-      onSelectCategory("All")
-      return
+      setSelectedCategories([]);
+      onSelectCategory("All");
+      return;
     }
 
-    let newSelectedCategories: string[]
+    let newSelectedCategories: string[];
     if (selectedCategories.includes(category)) {
-      newSelectedCategories = selectedCategories.filter((c) => c !== category)
+      newSelectedCategories = selectedCategories.filter((c) => c !== category);
     } else {
-      newSelectedCategories = [...selectedCategories, category]
+      newSelectedCategories = [...selectedCategories, category];
     }
 
-    setSelectedCategories(newSelectedCategories)
+    setSelectedCategories(newSelectedCategories);
     if (newSelectedCategories.length === 0) {
-      onSelectCategory("All")
+      onSelectCategory("All");
     } else {
-      onSelectCategory(newSelectedCategories.join(","))
+      onSelectCategory(newSelectedCategories.join(","));
     }
-  }
+  };
 
   return (
     <div className="w-full max-w-4xl mx-auto">
@@ -53,16 +57,19 @@ export function CategoryFilter({ categories, activeCategory, onSelectCategory }:
           .map((category) => (
             <Button
               key={category}
-              variant={selectedCategories.includes(category) ? "default" : "outline"}
+              variant={
+                selectedCategories.includes(category) ? "default" : "outline"
+              }
               onClick={() => handleCategoryClick(category)}
               className="justify-between"
             >
               {category}
-              {selectedCategories.includes(category) && <Check className="ml-2 h-4 w-4" />}
+              {selectedCategories.includes(category) && (
+                <Check className="ml-2 h-4 w-4" />
+              )}
             </Button>
           ))}
       </div>
     </div>
-  )
+  );
 }
-

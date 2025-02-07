@@ -1,12 +1,14 @@
-'use client'
-import { Product } from './product-card'
-import ProductCard from './product-card'
+"use client";
+import { Product } from "./product-card";
+import ProductCard from "./product-card";
 
 interface RecommendedProductsProps {
   recommendedProducts: Product[];
 }
 
-export default function RecommendedProducts({ recommendedProducts }: RecommendedProductsProps) {
+export default function RecommendedProducts({
+  recommendedProducts,
+}: RecommendedProductsProps) {
   return (
     <section className="mt-16">
       <h2 className="text-2xl font-bold mb-8">Recommended Products</h2>
@@ -18,4 +20,3 @@ export default function RecommendedProducts({ recommendedProducts }: Recommended
     </section>
   );
 }
-

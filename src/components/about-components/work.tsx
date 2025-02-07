@@ -11,11 +11,12 @@ const Work = () => {
             WORK WITH US
           </h3>
           <h2 className="text-[#FFFFFF] font-bold text-[28px] md:text-[40px] mb-4 md:mb-6">
-          Let's grow your business together
+            Let's grow your business together
           </h2>
           <p className="text-[#FFFFFF] text-[14px] md:text-[16px] mb-6">
-          Join us to revolutionize fashion with quality products.<br />
-          Let's collaborate and create an unforgettable shopping experience.
+            Join us to revolutionize fashion with quality products.
+            <br />
+            Let's collaborate and create an unforgettable shopping experience.
           </p>
           <button className="border px-6 py-2 md:px-9 md:py-3 text-[#FFFFFF] rounded-md transition-transform hover:scale-110 hover:bg-[#1E6CB3] hover:border-transparent">
             Button

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import { CartProvider } from '@/context/CartContext'
-import { AuthProvider } from "@/context/AuthContext"
+import { CartProvider } from "@/context/CartContext";
+import { AuthProvider } from "@/context/AuthContext";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -22,10 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.className}>
       <body>
-      <AuthProvider>
-      <CartProvider>
-        {children}
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>{children}</CartProvider>
         </AuthProvider>
       </body>
     </html>

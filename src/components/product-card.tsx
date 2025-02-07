@@ -1,3 +1,4 @@
+import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Wishlist } from "@/components/wishlist"
@@ -6,10 +7,10 @@ export interface Product {
   _id: string
   id: string
   name: string
-  imageUrl: any
+  imageUrl: string
   category: string
-  price: string
-  discount: string
+  price: number
+  discount: number
   rating: string
 }
 
@@ -18,9 +19,13 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const price = Number.parseFloat(product.price.toString().replace("$", ""))
-  const discount = Number.parseFloat(product.discount.toString().replace("%", ""))
-  const discountedPrice = price * (1 - discount / 100)
+  const discountedPrice = product.price * (1 - (product.discount || 0) / 100)
+
+  // Add this function to safely format the price
+  const formatPrice = (price: number | string) => {
+    const numPrice = typeof price === "string" ? Number.parseFloat(price) : price
+    return isNaN(numPrice) ? "0.00" : numPrice.toFixed(2)
+  }
 
   return (
     <div className="flex flex-col items-center p-4 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg">
@@ -37,8 +42,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <h3 className="text-[#252B42] text-[16px] font-bold">{product.name}</h3>
         <p className="text-[#737373] text-[14px]">{product.category}</p>
         <p className="text-[#BDBDBD] text-[16px] font-bold mt-2">
-          <span className="line-through">${price.toFixed(2)}</span>{" "}
-          <span className="text-[#23856D]">${discountedPrice.toFixed(2)}</span>
+          <span className="line-through">${formatPrice(product.price)}</span>{" "}
+          <span className="text-[#23856D]">${formatPrice(discountedPrice)}</span>
         </p>
         <div className="flex justify-between items-center mt-4">
           <div className="text-[#F3CD03] text-[14px]">{product.rating} ★</div>

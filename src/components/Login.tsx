@@ -1,49 +1,51 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState } from "react"
-import { useAuth } from "@/context/AuthContext"
-import { FiMail, FiLock } from "react-icons/fi"
-import { FcGoogle } from "react-icons/fc"
-import { useRouter } from "next/navigation"
+import type React from "react";
+import { useState } from "react";
+import { useAuth } from "@/context/AuthContext";
+import { FiMail, FiLock } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
+import { useRouter } from "next/navigation";
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const { login, loginWithGoogle } = useAuth()
-  const router = useRouter()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { login, loginWithGoogle } = useAuth();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError("")
-    setLoading(true)
+    e.preventDefault();
+    setError("");
+    setLoading(true);
     try {
-      await login(email, password)
-      router.push("/dashboard")
+      await login(email, password);
+      router.push("/dashboard");
     } catch (error) {
-      setError("Failed to log in. Please check your credentials.")
+      setError("Failed to log in. Please check your credentials.");
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   const handleGoogleLogin = async () => {
-    setError("")
-    setLoading(true)
+    setError("");
+    setLoading(true);
     try {
-      await loginWithGoogle()
-      router.push("/dashboard")
+      await loginWithGoogle();
+      router.push("/dashboard");
     } catch (error) {
-      setError("Failed to log in with Google.")
+      setError("Failed to log in with Google.");
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return (
     <div className="max-w-md w-full space-y-8">
       <div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Sign in to your account
+        </h2>
       </div>
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
         <input type="hidden" name="remember" defaultValue="true" />
@@ -96,13 +98,19 @@ const Login: React.FC = () => {
               type="checkbox"
               className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
             />
-            <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+            <label
+              htmlFor="remember-me"
+              className="ml-2 block text-sm text-gray-900"
+            >
               Remember me
             </label>
           </div>
 
           <div className="text-sm">
-            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <a
+              href="#"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
               Forgot your password?
             </a>
           </div>
@@ -127,7 +135,9 @@ const Login: React.FC = () => {
             <div className="w-full border-t border-gray-300" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-2 bg-white text-gray-500">Or continue with</span>
+            <span className="px-2 bg-white text-gray-500">
+              Or continue with
+            </span>
           </div>
         </div>
 
@@ -143,8 +153,7 @@ const Login: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
-
+export default Login;

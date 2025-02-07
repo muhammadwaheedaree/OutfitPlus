@@ -124,7 +124,10 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link href="#blog" className="hover:text-[#23A6F0] transition-all">
+                <Link
+                  href="#blog"
+                  className="hover:text-[#23A6F0] transition-all"
+                >
                   Blog
                 </Link>
               </li>
@@ -137,7 +140,10 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/pages" className="hover:text-[#23A6F0] transition-all">
+                <Link
+                  href="/pages"
+                  className="hover:text-[#23A6F0] transition-all"
+                >
                   Pages
                 </Link>
               </li>
@@ -166,7 +172,10 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/product" className="hover:text-[#23A6F0] transition-all">
+              <Link
+                href="/product"
+                className="hover:text-[#23A6F0] transition-all"
+              >
                 Product
               </Link>
             </li>
