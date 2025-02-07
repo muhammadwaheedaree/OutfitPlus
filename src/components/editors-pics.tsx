@@ -26,7 +26,7 @@ const EditorsPics = () => {
 
         {/* Women Image with Label */}
         <div className="relative">
-          <Image src={"/women.png"} alt="Women's Fashion" width={245} height={500} />
+          <Image src={"/women.jpg"} alt="Women's Fashion" width={340} height={300} />
           <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
             <span className="text-[#252B42] font-bold text-lg">WOMEN</span>
           </div>
@@ -36,7 +36,7 @@ const EditorsPics = () => {
         <div className="flex flex-col gap-6">
           {/* Accessories Image with Label */}
           <div className="relative">
-            <Image src={"/accessories.jpg"} alt="Fashion Accessories" width={240} height={242} />
+            <Image src={"/accessories.jpg"} alt="Fashion Accessories" width={242} height={242} />
             <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
               <span className="text-[#252B42] font-bold text-lg">ACCESSORIES</span>
             </div>
@@ -44,7 +44,7 @@ const EditorsPics = () => {
 
           {/* Kids Image with Label */}
           <div className="relative">
-            <Image src={"/kids.jpg"} alt="Kids' Fashion" width={240} height={242} />
+            <Image src={"/kids.jpg"} alt="Kids' Fashion" width={242} height={242} />
             <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
               <span className="text-[#252B42] font-bold text-lg">KIDS</span>
             </div>
@@ -64,7 +64,7 @@ const EditorsPics = () => {
 
         {/* Women Image with Label */}
         <div className="relative w-[90%]">
-          <Image src={"/women.png"} alt="Women's Fashion" width={240} height={500} />
+          <Image src={"/women.jpg"} alt="Women's Fashion" width={270} height={500} />
           <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
             <span className="text-[#252B42] font-bold text-lg">WOMEN</span>
           </div>
@@ -74,7 +74,7 @@ const EditorsPics = () => {
         <div className="flex flex-col gap-6 w-[90%]">
           {/* Accessories Image with Label */}
           <div className="relative">
-            <Image src={"/accessories.jpg"} alt="Fashion Accessories" width={240} height={242} />
+            <Image src={"/accessories.jpg"} alt="Fashion Accessories" width={270} height={242} />
             <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
               <span className="text-[#252B42] font-bold text-lg">ACCESSORIES</span>
             </div>
@@ -82,7 +82,7 @@ const EditorsPics = () => {
 
           {/* Kids Image with Label */}
           <div className="relative">
-            <Image src={"/kids.jpg"} alt="Kids' Fashion" width={240} height={242} />
+            <Image src={"/kids.jpg"} alt="Kids' Fashion" width={270} height={242} />
             <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
               <span className="text-[#252B42] font-bold text-lg">KIDS</span>
             </div>
