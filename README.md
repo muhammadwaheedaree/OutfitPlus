@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OutfitPlus - E-commerce Marketplace
 
-## Getting Started
+## 🚀 Project Overview
+OutfitPlus is a fully functional e-commerce marketplace built using **Next.js 14**, designed to provide a seamless shopping experience. This project follows best practices for frontend development, API integration, and deployment strategies, ensuring scalability and high performance.
 
-First, run the development server:
+## 📌 Key Features
+- **Next.js 14** with dynamic routing and server-side rendering (SSR)
+- **Sanity CMS** integration for product management
+- **Secure authentication** with Firebase
+- **Optimized performance** using Lighthouse and GTmetrix
+- **Staging & production environment setup** for seamless deployment
+- **Comprehensive testing** (Functional, Performance, Security)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📁 Folder Structure
+```
+OutfitPlus/
+│── documents/            # Contains documentation for all days
+│── public/               # Static assets (images, icons, etc.)
+│── src/
+│   ├── components/       # Reusable UI components
+│   ├── pages/            # Next.js pages
+│   ├── styles/           # Global and module CSS
+│   ├── utils/            # Helper functions
+│── .env                  # Environment variables (not committed)
+│── next.config.js        # Next.js configuration
+│── README.md             # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📅 Hackathon Progress (Day 1 - Day 6)
+### **Day 1: Project Planning & Setup**
+- Defined project scope, user stories, and technology stack
+- Initialized Next.js 14 project and configured folder structure
+- Integrated Tailwind CSS for styling
+- Created GitHub repository for version control
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Day 2: UI/UX Development**
+- Designed homepage, product listing, and cart components
+- Implemented responsive design using Tailwind CSS
+- Integrated basic navigation and routing
 
-## Learn More
+### **Day 3: API & Database Integration**
+- Configured Sanity CMS for product management
+- Integrated Firebase authentication
+- Developed API endpoints for fetching and updating product data
 
-To learn more about Next.js, take a look at the following resources:
+### **Day 4: Advanced Features & Optimizations**
+- Implemented search and filtering functionality
+- Integrated dynamic product pages
+- Added error handling and fallback UI for better user experience
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Day 5: Testing & Debugging**
+- Conducted functional testing (product listing, search, cart operations)
+- Performed performance testing using Lighthouse & GTmetrix
+- Ensured security compliance (API keys, HTTPS, input validation)
+- Documented all test cases in CSV format
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Day 6: Deployment & Staging Setup**
+- Configured **Vercel** for deployment
+- Set up a **staging environment** to validate performance
+- Organized all project files and documentation
+- Finalized **README.md** and structured GitHub repository
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌍 Deployment
+- **Production Deployment**: [Live Production Link](https://outfit-plus.vercel.app/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📜 Documentation & Resources
+- **[Project Documents (Days 1-6)](./documents/)**
+- **[Test Case Report (CSV Format)](./documents/test_cases.csv)**
+- **[Performance Testing Results](./documents/performance_report.pdf)**
+
+---
+
+## 📌 How to Run Locally
+### **1️⃣ Clone the repository**
+```bash
+git clone https://github.com/muhammadwaheedaree/OutfitPlus.git
+cd OutfitPlus
+```
+### **2️⃣ Install dependencies**
+```bash
+npm install
+```
+### **3️⃣ Set up environment variables**
+Create a `.env` file and add:
+```
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+FIREBASE_API_KEY=your_api_key
+```
+### **4️⃣ Start the development server**
+```bash
+npm run dev
+```
+The application will be available at `http://localhost:3000`.
+
+---
+
+## ✅ Submission Checklist
+✔ **Staging environment deployed**  
+✔ **GitHub repository with organized project files**  
+✔ **Documents folder containing all reports**  
+✔ **Test case report in CSV format**  
+✔ **Performance testing results**  
+✔ **README.md with project summary & deployment details**  
+
+---
+
+## 👨‍💻 Author
+**Ameen Alam**  
+Developed as part of a 7-day hackathon
+
+---
+
+## 📩 Contact
+For any queries, feel free to reach out:
+- **Email**: muhammadwaheedaree128@gmail.com
+- **GitHub**: [yourusername](https://github.com/muhammadwaheedaree)
+- **LinkedIn**: [yourprofile](https://linkedin.com/in/muhammadwaheedaree)
+
+---
+
+🔹 *Thank you for checking out OutfitPlus! 🚀*
