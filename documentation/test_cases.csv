@@ -1,0 +1,9 @@
+Test Case ID,Description,Steps,Expected Result,Actual Result,Status,Severity
+TC001,Verify product listing loads correctly,"Navigate to homepage, observe product list",Product listing displays with correct data,Product listing loaded correctly,Passed,Low
+TC002,Test search functionality with valid input,"Enter valid product name in search bar, click search",Search results display matching products,Search results displayed as expected,Passed,Medium
+TC003,Ensure cart operations (add/remove items) work,"Add item to cart, remove item from cart",Items added/removed successfully with correct total,Cart operations worked as intended,Passed,High
+TC004,Check responsive design on mobile,"Open site on mobile view, observe layout",Layout adapts to mobile screen without issues,Mobile layout displayed correctly,Passed,Medium
+TC005,Handle API failure gracefully,Simulate API failure by blocking network,Display fallback UI and error message,Fallback UI and error message displayed,Passed,High
+TC006,Validate checkout functionality,"Add items to cart, proceed to checkout",Checkout process completes successfully,Checkout completed successfully,Passed,High
+TC007,Test login/logout functionality,"Log in with valid credentials, log out",User successfully logs in and logs out,Login/logout worked as expected,Passed,High
+TC008,Verify cross-browser compatibility,"Open site in Chrome, Firefox, Safari, Edge",Site functions correctly in all browsers,Consistent experience across all browsers,Passed,Medium
