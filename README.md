@@ -94,8 +94,8 @@ Developed as part of a 7-day hackathon
 ## 📩 Contact
 For any queries, feel free to reach out:
 - **Email**: muhammadwaheedaree128@gmail.com
-- **GitHub**: [yourusername](https://github.com/muhammadwaheedaree)
-- **LinkedIn**: [yourprofile](https://linkedin.com/in/muhammadwaheedaree)
+- **GitHub**: [muhammadwaheedaree](https://github.com/muhammadwaheedaree)
+- **LinkedIn**: [muhammadwaheedaree](https://linkedin.com/in/muhammadwaheedaree)
 
 ---
 
