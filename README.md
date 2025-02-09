@@ -1,30 +1,30 @@
 # OutfitPlus - E-commerce Marketplace
 
 ## 🚀 Project Overview
-OutfitPlus is a fully functional e-commerce marketplace built using **Next.js 14**, designed to provide a seamless shopping experience. This project follows best practices for frontend development, API integration, and deployment strategies, ensuring scalability and high performance.
+OutfitPlus is a fully functional e-commerce marketplace designed to provide a seamless shopping experience. Built as part of a 7-day hackathon, this project incorporates efficient frontend development, API integration, and optimized deployment strategies to ensure high performance and scalability.
 
 ## 📌 Key Features
-- **Next.js 14** with dynamic routing and server-side rendering (SSR)
+- **Modern UI/UX** for an intuitive shopping experience
 - **Sanity CMS** integration for product management
 - **Secure authentication** with Firebase
-- **Optimized performance** using Lighthouse and GTmetrix
-- **Staging & production environment setup** for seamless deployment
-- **Comprehensive testing** (Functional, Performance, Security)
+- **Performance optimization** for fast load times
+- **Staging & production environment setup** for deployment
+- **Comprehensive testing** covering functionality, performance, and security
 
 ---
 
-## 📁 Folder Structure
+## 📁 Project Structure
 ```
 OutfitPlus/
-│── documents/            # Contains documentation for all days
+│── documents/            # Documentation (Day 1 - Day 6)
 │── public/               # Static assets (images, icons, etc.)
 │── src/
 │   ├── components/       # Reusable UI components
-│   ├── pages/            # Next.js pages
+│   ├── pages/            # Application pages
 │   ├── styles/           # Global and module CSS
 │   ├── utils/            # Helper functions
 │── .env                  # Environment variables (not committed)
-│── next.config.js        # Next.js configuration
+│── next.config.js        # Configuration settings
 │── README.md             # Project documentation
 ```
 
@@ -32,37 +32,34 @@ OutfitPlus/
 
 ## 📅 Hackathon Progress (Day 1 - Day 6)
 ### **Day 1: Project Planning & Setup**
-- Defined project scope, user stories, and technology stack
-- Initialized Next.js 14 project and configured folder structure
-- Integrated Tailwind CSS for styling
-- Created GitHub repository for version control
+- Defined marketplace type and business goals
+- Outlined user personas and unique selling points
+- Created initial database schema and structured data models
 
-### **Day 2: UI/UX Development**
-- Designed homepage, product listing, and cart components
-- Implemented responsive design using Tailwind CSS
-- Integrated basic navigation and routing
+### **Day 2: Technical Foundation & Architecture**
+- Finalized technology stack and system architecture
+- Designed API endpoints for product and order management
+- Integrated Sanity CMS for backend operations
 
-### **Day 3: API & Database Integration**
-- Configured Sanity CMS for product management
-- Integrated Firebase authentication
-- Developed API endpoints for fetching and updating product data
+### **Day 3: UI/UX Development**
+- Developed homepage, product listing, and checkout pages
+- Implemented responsive design for mobile and desktop
+- Added interactive elements and smooth navigation
 
-### **Day 4: Advanced Features & Optimizations**
-- Implemented search and filtering functionality
-- Integrated dynamic product pages
-- Added error handling and fallback UI for better user experience
+### **Day 4: Backend & API Integration**
+- Connected frontend with Sanity CMS
+- Integrated Firebase authentication system
+- Implemented order processing and payment workflow
 
 ### **Day 5: Testing & Debugging**
-- Conducted functional testing (product listing, search, cart operations)
-- Performed performance testing using Lighthouse & GTmetrix
-- Ensured security compliance (API keys, HTTPS, input validation)
-- Documented all test cases in CSV format
+- Conducted functional testing for all core features
+- Performed performance optimization and security enhancements
+- Documented test cases and results in CSV format
 
 ### **Day 6: Deployment & Staging Setup**
-- Configured **Vercel** for deployment
-- Set up a **staging environment** to validate performance
-- Organized all project files and documentation
-- Finalized **README.md** and structured GitHub repository
+- Deployed staging environment for final validation
+- Configured **Vercel** for production deployment
+- Organized all project files and finalized documentation
 
 ---
 
@@ -75,31 +72,6 @@ OutfitPlus/
 - **[Project Documents (Days 1-6)](./documents/)**
 - **[Test Case Report (CSV Format)](./documents/test_cases.csv)**
 - **[Performance Testing Results](./documents/performance_report.pdf)**
-
----
-
-## 📌 How to Run Locally
-### **1️⃣ Clone the repository**
-```bash
-git clone https://github.com/muhammadwaheedaree/OutfitPlus.git
-cd OutfitPlus
-```
-### **2️⃣ Install dependencies**
-```bash
-npm install
-```
-### **3️⃣ Set up environment variables**
-Create a `.env` file and add:
-```
-NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
-NEXT_PUBLIC_SANITY_DATASET=production
-FIREBASE_API_KEY=your_api_key
-```
-### **4️⃣ Start the development server**
-```bash
-npm run dev
-```
-The application will be available at `http://localhost:3000`.
 
 ---
 
