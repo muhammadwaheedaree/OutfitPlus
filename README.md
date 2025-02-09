@@ -72,9 +72,9 @@ OutfitPlus/
 ---
 
 ## 📜 Documentation & Resources
-- **[Project Documents (Days 1-6)](/documents/)**
-- **[Test Case Report (CSV Format)](/documents/test_cases.csv)**
-- **[Performance Testing Results](/documents/performance_report.pdf)**
+- **[Project Documents (Days 1-6)](./documents/)**
+- **[Test Case Report (CSV Format)](./documents/test_cases.csv)**
+- **[Performance Testing Results](./documents/performance_report.pdf)**
 
 ---
 
