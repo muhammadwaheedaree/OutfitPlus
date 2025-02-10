@@ -1,23 +1,26 @@
-# OutfitPlus - E-commerce Marketplace
+# 🛍️ OutfitPlus - E-commerce Marketplace
 
 ## 🚀 Project Overview
-OutfitPlus is a fully functional e-commerce marketplace designed to provide a seamless shopping experience. Built as part of a 7-day hackathon, this project incorporates efficient frontend development, API integration, and optimized deployment strategies to ensure high performance and scalability.
-
-## 📌 Key Features
-- **Modern UI/UX** for an intuitive shopping experience
-- **Sanity CMS** integration for product management
-- **Secure authentication** with Firebase
-- **Performance optimization** for fast load times
-- **Staging & production environment setup** for deployment
-- **Comprehensive testing** covering functionality, performance, and security
+OutfitPlus is a next-generation fashion e-commerce marketplace designed to simplify online shopping with a seamless user experience. Developed as part of a **7-day hackathon**, OutfitPlus integrates **cutting-edge technology**, a **user-friendly interface**, and **scalable architecture** to revolutionize digital fashion retail.
 
 ---
 
-## 📁 Project Structure
+## 📌 Key Features
+✅ **Modern UI/UX** – Intuitive shopping experience with a clean and responsive design.  
+✅ **Sanity CMS Integration** – Efficient product management system for sellers.  
+✅ **Secure Authentication** – Firebase-powered login & user security.  
+✅ **Optimized Performance** – Fast load times with best coding practices.  
+✅ **Seamless API Integration** – Robust backend for handling orders & payments.  
+✅ **Staging & Production Deployment** – Optimized workflow with **Vercel hosting**.  
+✅ **Comprehensive Testing** – Performance, security, and functionality tested.  
+
+---
+
+## 📂 Project Structure
 ```
 OutfitPlus/
-│── documents/            # Documentation (Day 1 - Day 6)
-│── public/               # Static assets (images, icons, etc.)
+│── documents/            # Documentation (Hackathon Progress & Pitch Deck)
+│── public/               # Static assets (logos, images, icons, etc.)
 │── src/
 │   ├── components/       # Reusable UI components
 │   ├── pages/            # Application pages
@@ -30,48 +33,67 @@ OutfitPlus/
 
 ---
 
-## 📅 Hackathon Progress (Day 1 - Day 6)
+## 📅 Hackathon Progress (Day 1 - Day 7)
+
 ### **Day 1: Project Planning & Setup**
-- Defined marketplace type and business goals
-- Outlined user personas and unique selling points
-- Created initial database schema and structured data models
+- Defined marketplace objectives, business goals & user personas.
+- Created an initial database schema & structured data models.
 
 ### **Day 2: Technical Foundation & Architecture**
-- Finalized technology stack and system architecture
-- Designed API endpoints for product and order management
-- Integrated Sanity CMS for backend operations
+- Finalized tech stack & system architecture.
+- Designed API endpoints for product & order management.
+- Integrated Sanity CMS for efficient backend operations.
 
 ### **Day 3: UI/UX Development**
-- Developed homepage, product listing, and checkout pages
-- Implemented responsive design for mobile and desktop
-- Added interactive elements and smooth navigation
+- Developed homepage, product listing, checkout, and account pages.
+- Implemented responsive design for mobile & desktop.
+- Added smooth navigation & interactive elements.
 
 ### **Day 4: Backend & API Integration**
-- Connected frontend with Sanity CMS
-- Integrated Firebase authentication system
-- Implemented order processing and payment workflow
+- Connected frontend with Sanity CMS.
+- Integrated Firebase authentication system.
+- Implemented order processing & secure payment workflows.
 
 ### **Day 5: Testing & Debugging**
-- Conducted functional testing for all core features
-- Performed performance optimization and security enhancements
-- Documented test cases and results in CSV format
+- Conducted functional testing for all core features.
+- Performed **performance optimization** & **security enhancements**.
+- Documented test cases and results in **CSV format**.
 
 ### **Day 6: Deployment & Staging Setup**
-- Deployed staging environment for final validation
-- Configured **Vercel** for production deployment
-- Organized all project files and finalized documentation
+- Deployed a staging environment for final validation.
+- Configured **Vercel** for production deployment.
+- Organized project files & finalized documentation.
+
+### **Day 7: Refinement & Pitch Deck Integration**
+- Optimized codebase for scalability & future AI integration.
+- Created a **professional pitch deck** for investor outreach.
+- Added the **Pitch Deck** to the documentation folder.
+
+---
+
+## 🎤 Business Pitch Deck
+As part of the **OutfitPlus business strategy**, a comprehensive **Pitch Deck** has been created. It includes insights on market opportunities, business model, revenue generation strategies, competitive analysis, and future growth plans.
+
+📌 **Pitch Deck Location:** [`documents/OutfitPlus_Pitch_Deck.pdf`](./documents/OutfitPlus_Pitch_Deck.pdf)  
+
+📢 **Key Highlights:**
+- Market opportunity in the $1T+ global fashion industry.
+- Revenue model: commission-based sales, premium seller subscriptions, & ads.
+- Future AI-driven recommendations & personalization.
+- Investment ask: Funding for development, marketing, and scaling operations.
 
 ---
 
 ## 🌍 Deployment
-- **Production Deployment**: [Live Production Link](https://outfit-plus.vercel.app/)
+**Live Production:** [OutfitPlus Production](https://outfit-plus.vercel.app/)  
 
 ---
 
 ## 📜 Documentation & Resources
-- **[Project Documents (Days 1-6)](./documents/)**
-- **[Test Case Report (CSV Format)](./documents/test_cases.csv)**
-- **[Performance Testing Results](./documents/performance_report.pdf)**
+📂 **[Hackathon Reports (Days 1-7)](./documents/)**  
+📂 **[Test Case Report (CSV Format)](./documents/test_cases.csv)**  
+📂 **[Performance Testing Results](./documents/performance_report.pdf)**  
+📂 **[Business Pitch Deck](./documents/OutfitPlus_Pitch_Deck.pdf)**  
 
 ---
 
@@ -82,21 +104,20 @@ OutfitPlus/
 ✔ **Test case report in CSV format**  
 ✔ **Performance testing results**  
 ✔ **README.md with project summary & deployment details**  
+✔ **Business Pitch Deck added to documentation**  
 
 ---
 
 ## 👨‍💻 Author
-**Ameen Alam**  
-Developed as part of a 7-day hackathon
+**Muhammad Waheed**  
+Founder & CEO, OutfitPlus  
 
----
-
-## 📩 Contact
-For any queries, feel free to reach out:
-- **Email**: muhammadwaheedaree128@gmail.com
-- **GitHub**: [muhammadwaheedaree](https://github.com/muhammadwaheedaree)
-- **LinkedIn**: [muhammadwaheedaree](https://linkedin.com/in/muhammadwaheedaree)
+📩 **Contact:**  
+- **Email:** muhammadwaheedaree128@gmail.com  
+- **GitHub:** [muhammadwaheedaree](https://github.com/muhammadwaheedaree)  
+- **LinkedIn:** [muhammadwaheedaree](https://linkedin.com/in/muhammadwaheedaree)  
 
 ---
 
 🔹 *Thank you for checking out OutfitPlus! 🚀*
+
